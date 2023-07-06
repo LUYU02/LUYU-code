@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      .box {
+        width: 850px;
+        margin: 0 auto;
+        border: 10px solid red;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 30px;
+
+        /* 开启网格布局*/
+        display: grid;
+
+        grid-template-columns: repeat(4, 200px);
+        grid-template-rows: 150px 200px 200px 100px;
+        grid-gap: 10px;
+        /* 网格命名区域布局 */
+        grid-template-areas:
+          "hd hd hd ."
+          "cb main main main"
+          "cb t1 t2 t3"
+          "ft ft ft ft";
+      }
+      /*网格项*/
+      .box1 {
+        background-color: #bfa;
+        grid-area: hd;
+      }
+      .box2 {
+        background-color: orangered;
+        grid-area: cb;
+      }
+      .box3 {
+        background-color: yellow;
+        grid-area: main;
+      }
+      .box4 {
+        background-color: oldlace;
+        grid-area: t1;
+      }
+      .box5 {
+        background-color: pink;
+        grid-area: t2;
+      }
+      .box6 {
+        background-color: rebeccapurple;
+        grid-area: t3;
+      }
+      .box7 {
+        background-color: rosybrown;
+        grid-area: ft;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="box1">1</div>
+      <div class="box2">2</div>
+      <div class="box3">3</div>
+      <div class="box4">4</div>
+      <div class="box5">5</div>
+      <div class="box6">6</div>
+      <div class="box7">7</div>
+    </div>
+  </body>
+</html>

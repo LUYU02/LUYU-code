@@ -1,0 +1,19 @@
+.box{
+  display: flex;
+  justify-content:  space-between;
+  padding:30rpx ;
+}
+.box_left{
+  display: flex;
+  flex: 8;
+  flex-direction: column;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.box_right{
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  margin-left: 30rpx;
+}

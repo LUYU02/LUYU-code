@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <title>动画</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: #bfa;
+        animation: box 3s linear infinite;
+      }
+      @keyframes box {
+        from {
+          margin-left: 0;
+        }
+        to {
+          margin-left: 400px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>轮廓 圆角 阴影</title>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            margin: 100px auto;
+            background-color: #bbffaa;
+            border: 10px dashed red;
+            /*  轮廓 不占空间 不会挤掉其他元素*/
+            outline: 10px double pink;
+            /*  圆角*/
+            /*border-radius: 50%;*/
+            /*border-top-left-radius: 100px;*/
+            /*border-top-right-radius: 100px;*/
+            /*border-bottom-left-radius: 100px;*/
+            /*border-bottom-right-radius: 100px;*/
+
+
+        }
+        .box1:hover{
+            box-shadow:2px 40px .4em 1em rgba(0,0,0,2), 2px -40px rgba(225,171,0,2),40px 0px rgba(0,0,0,.3),-40px 0px rgba(225,171,0,.1);
+        }
+    </style>
+</head>
+<body>
+<div class="box1"></div>
+</body>
+</html>

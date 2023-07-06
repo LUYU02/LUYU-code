@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <title>网格布局</title>
+    <style>
+      .box {
+        width: 1000px;
+        height: 1000px;
+        margin: 0 auto;
+        border: 10px solid red;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 30px;
+
+        /* 开启网格布局*/
+        display: grid;
+        /*列*/
+        grid-template-columns: repeat(4, 200px);
+        /*行*/
+        grid-template-rows: 150px 200px 200px 150px;
+
+        /* 列间距 行间距*/
+        /*grid-column-gap: 100px;*/
+        /*grid-row-gap: 10px;*/
+        grid-gap: 10px;
+
+        /*网格项水平对齐*/
+        justify-items: auto;
+        /*网格项垂直对齐*/
+        align-items: center;
+        /*
+            开启网格布局的盒子整体对齐方式
+              水平方向 和 垂直方向
+        */
+        /*justify-content: center;*/
+        /*align-content: center;*/
+      }
+      /*网格项*/
+      .box1 {
+        background-color: #bfa;
+        /*grid-column-start: 1;*/
+        /*grid-column-end: 5;*/
+        grid-column: 1/-1;
+        /*设置该项在该单元水平对齐方式*/
+        justify-self: right;
+        /*设置该项在该单元垂直对齐方式*/
+        align-self: end;
+      }
+      .box2 {
+        background-color: orangered;
+        /*grid-row-start: 2;*/
+        /*grid-row-end: 4;*/
+        grid-row: 2/4;
+        /*
+                网格项
+                  grid-column-start 起始位置(列)
+                  grid-column-end 结束位置
+
+                  grid-row-start 起始位置(行)(会改变位置)
+                  grid-row-end 结束位置
+
+                */
+        /*grid-column-start: 3;*/
+        /*grid-column-end: span 3;*/
+        /*grid-row-start: 3;*/
+        /*grid-row-end: 2;*/
+      }
+      .box3 {
+        background-color: yellow;
+        /*grid-column-start: 2;*/
+        /*grid-column-end: 5;*/
+        /*grid-row-start: 2;*/
+        /*grid-row-end: 3;*/
+        /* rs起始行 cs起始列 re结束行 ce结束列*/
+        grid-area: 2/2/3/5;
+      }
+      .box4 {
+        background-color: oldlace;
+      }
+      .box5 {
+        background-color: pink;
+      }
+      .box6 {
+        background-color: rebeccapurple;
+      }
+      .box7 {
+        background-color: rosybrown;
+        grid-column-start: 1;
+        grid-column-end: 5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="box1">1</div>
+      <div class="box2">2</div>
+      <div class="box3">3</div>
+      <div class="box4">4</div>
+      <div class="box5">5</div>
+      <div class="box6">6</div>
+      <div class="box7">7</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 监视属性 -->
+    <div id="app">
+      列表框:<input type="text" name="" id="" v-model="Mykey" />
+      <ul>
+        <li v-for="(v,i) of arr2" :key="v.name">
+          <template>{{v.name}}---{{v.age}}----{{i}}</template>
+        </li>
+      </ul>
+    </div>
+    <!-- 计算属性 -->
+    <!--   <div id="app">
+      列表框:<input type="text" name="" id="" v-model="Mykey" />
+      <ul>
+        <li v-for="(v,i) of carr" :key="v.name">
+          <template>{{v.name}}---{{v.age}}----{{i}}</template>
+        </li>
+      </ul>
+    </div> -->
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            Mykey: "",
+            arr: [
+              { name: "小江", age: 21 },
+              { name: "露雨", age: 10 },
+              { name: "小小江", age: 15 },
+              { name: "xiaojiang", age: 22 },
+              { name: "露", age: 18 },
+            ],
+            arr2: [],
+          }
+        },
+        watch: {
+          Mykey: {
+            immediate: true,
+            handler(newV) {
+              return (this.arr2 = this.arr.filter((v) => {
+                return v.name.indexOf(newV) !== -1
+              }))
+            },
+          },
+        },
+      })
+      //   计算属性
+      /*       new Vue({
+        el: "#app",
+        data() {
+          return {
+            Mykey: "",
+            arr: [
+              { name: "小江", age: 21 },
+              { name: "露雨", age: 10 },
+              { name: "小小江", age: 15 },
+              { name: "xiaojiang", age: 22 },
+              { name: "露", age: 18 },
+            ],
+          }
+        },
+        computed: {
+          carr() {
+            return this.arr.filter((v) => {
+              return v.name.indexOf(this.Mykey) !== -1
+            })
+          },
+        },
+      }) */
+    </script>
+  </body>
+</html>

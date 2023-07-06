@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>1</button>
+    <p>闭包就是能够读取其他函数内部变量的函数</p>
+    <script>
+      // var i = 0
+      // function outerFn() {
+      //   function innnerFn() {
+      //     i++
+      //     console.log(i)
+      //   }
+      //   return innnerFn
+      // }
+      // var inner1 = outerFn()
+      // var inner2 = outerFn()
+      // inner1()
+      // inner2()
+      // inner1()
+      // inner2() //1 2 3 4
+      // console.log(i)
+      let btn = document.querySelector("button")
+
+      // 闭包
+      function bg() {
+        let a = 10
+        return () => {
+          a++
+          console.log(a)
+          a = 10 // 销毁变量 (闭包外层函数的变量不销毁会永远存在 占内存空间 影响性能)
+        }
+      }
+      let fn = bg()
+      fn()
+      fn()
+
+      // 节流
+      function throttle(fn, time) {
+        console.log(0)
+        let temp = false
+        return () => {
+          console.log(0)
+          if (temp) {
+            return
+          } else {
+            temp = true
+            setTimeout(() => {
+              fn()
+              // fn.apply(this, arguments)
+              temp = false
+            }, time)
+          }
+        }
+      }
+      btn.addEventListener(
+        "click",
+        throttle(() => {
+          console.log("节流")
+          btn.innerText++
+        }, 3000)
+      )
+
+      // 防抖
+      /* function debounce(fn, time) {
+        // 定义一个变量为计时器
+        let timer
+        return () => {
+          clearTimeout(timer)
+          timer = setTimeout(() => {
+            fn()
+          }, time)
+        }
+      }
+
+      // debounce(fn, 10000)()
+
+      btn.addEventListener(
+        "click",
+        debounce(() => {
+          console.log("防抖")
+          btn.innerText++
+        }, 2000)
+      ) */
+    </script>
+  </body>
+</html>

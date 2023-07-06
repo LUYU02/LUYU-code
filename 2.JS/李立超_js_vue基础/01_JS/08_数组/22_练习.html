@@ -1,0 +1,68 @@
+s<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /*
+                 一对兔子出生后的两个月后每个月都能生一对小兔子
+                     - 编写一个函数，可以用来计算第n个月的兔子的数量
+
+                 1   2   3   4   5   6   7   8   9   10  11  12
+                 1   1   2   3   5   8   13  21  34  55
+                 - 规律，当前数等于前两个数之和（斐波那契数列）
+             */
+
+      // 求 斐波那契数列 中的第n个数
+      function fib(n) {
+        // 确定基线条件
+        if (n < 3) {
+          return 1
+        }
+
+        // 设置递归条件
+        // 第n个数 = 第n-1个数 + 第n-2个数
+        return fib(n - 1) + fib(n - 2)
+      }
+      let result = fib(20)
+      console.log(result)
+
+      var fib1 = function (n) {
+        let diyi = 0
+        let dier = 1
+        if (n == 0) {
+          return diyi
+        }
+        if (n == 1) {
+          return dier
+        }
+
+        let num = 0
+        for (let i = 2; i <= n; i++) {
+          num = diyi + dier
+          diyi = dier
+          dier = num
+        }
+        return dier
+      }
+      console.log(fib1(20))
+
+      function fib2(n) {
+        function fib_(n, a, b) {
+          if (n == 0) {
+            return a //0是第0项，a就是要找的最终的数
+          } else {
+            return fib_(n - 1, b, a + b)
+            //每次将b赋值给a，避免了重复计算
+          }
+        }
+
+        return fib_(n, 0, 1)
+      }
+      console.log(fib2(90))
+    </script>
+  </head>
+  <body></body>
+</html>

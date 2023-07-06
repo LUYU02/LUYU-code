@@ -1,0 +1,22 @@
+<view class="hotService">
+	<view class="hotServiceList_box">
+	<!-- 这里为滚动的内容部分 -->
+			<scroll-view class="hotServiceList_scroll" scroll-x="true" bindscroll="getleft">
+				<view class="hotService_content">
+					<block wx:for="{{dataList}}" wx:key="{{index}}">
+						<view class="block{{index}} block">
+							<view class="blockContent">
+								<text>第{{index + 1}}块内容</text>
+							</view>
+						</view>
+					</block>
+				</view>
+			</scroll-view>
+		<!--滚动条部分-->
+		<view class="slide" wx:if="{{slideShow}}">
+			<view class='slide-bar'>
+				<view class="slide-show" style="width:{{slideWidth}}rpx; margin-left:{{slideLeft<=1 ? 0 : slideLeft+'rpx'}};"></view>
+			</view>
+		</view>
+	</view>
+</view>

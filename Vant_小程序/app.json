@@ -1,0 +1,53 @@
+{
+  "pages":[
+    "pages/movie/movie",
+    "pages/cinema/cinema",
+    "pages/about/about",
+    "pages/my/my",
+    "pages/movies_info/movies_info",
+    "pages/cinemadata/cinemadata",
+    "pages/info/info"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/movie/movie",
+        "iconPath": "static/首页1.png",
+        "selectedIconPath": "static/首页.png",
+        "text": "电影"
+      },
+      {
+        "pagePath": "pages/cinema/cinema",
+        "iconPath": "static/影院1.png",
+        "selectedIconPath": "static/影院.png",
+        "text": "影院"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "text": "关于",
+        "iconPath": "static/关于1.png",
+        "selectedIconPath": "static/关于1.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "static/我的1.png",
+        "selectedIconPath": "static/我的.png"
+      }
+    ]
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button":"@vant/weapp/button/index",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+  "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+  "van-tab": "@vant/weapp/tab/index",
+  "van-tabs": "@vant/weapp/tabs/index"
+  }
+}

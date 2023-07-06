@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <h1>ES6引入了一种新的原始数据类型Symbol,表示独一无二的值。</h1>
+    <ul>
+        <li>Symbol的值是唯一-的，用来解决命名冲突的问题 </li>
+        <li>Symbol值不能与其他数据进行运算</li>
+        <li>Symbol 定义的对象属性不能使用for..in 循环遍历，但是可以使用 Reflect.ownKeys来获取对象的所有键名</li>
+    </ul>
+    <script>
+        // let s = Symbol();
+        let s1 = Symbol("小江")
+        let s2 = Symbol("小江")
+        console.log(s1, typeof s1, s1 === s2)
+        let s3 = Symbol.for("小江")
+        let s4 = Symbol.for("小江")
+        console.log(s3, typeof s3, s3 === s4)
+
+        // 文档
+        console.log("\u0061" === 'a');
+        for (let k of "fo0o") {
+            console.log(k);
+        }
+        let zz = String.fromCodePoint(0x20BB7)
+        for (const i of zz) {
+            console.log(i);
+        }
+        console.log(String.raw`Hi\n${2 + 3}!`);
+        console.log(String.raw`Hi\\n` === "Hi\\\\n");
+        console.log('\u01D1'.normalize() === '\u004F\u030C'.normalize());
+        console.log('\u01D1'.normalize());
+        console.log('\u004F\u030C'.normalize());
+
+
+        let s = 'Hello world!';
+        s.startsWith('world', 6) // true
+        s.endsWith('Hello', 5) // true
+        s.includes('Hello', 6)
+        console.log(s.endsWith('Hello', 5));
+        console.log(s.repeat('10')); //重复几次
+        console.log("zz".padStart(5, "11"));
+        console.log("zz".padEnd(5, "111"));
+        console.log('2022-09-12 12:00:50'.padStart(10, 'YYYY-MM-DD hh:mm:ss'));
+        console.log("   s".trimLeft());
+        console.log('abbbc'.replaceAll('b', '$`')); //aaababbc
+        console.log('abbbc'.replaceAll('b', `$'`)); //abbcbccc
+        console.log('abbc1123'.replaceAll(/(ab)(bc)(1)(123)/g, '$4$3$1$2')); //1231bcab
+        console.log('abc'.replaceAll('b', '$$')); // a$b
+
+
+        const str = '123abc456';
+        const regex = /(\d+)([a-z]+)(\d+)/g;
+
+        function replacer(match, p1, p2, p3, offset, string) {
+            console.log(match === string);
+            return [p1, p2, p3, string, offset].join(' - ');
+        }
+        console.log(str.replaceAll(regex, replacer));
+
+    </script>
+</body>
+
+</html>

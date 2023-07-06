@@ -1,0 +1,56 @@
+<!--pages/movie_info/movie_info.wxml-->
+<view>
+  <view class="headers">
+    <image src="{{info.poster}}" mode="" />
+  </view>
+  <!-- 电影简介 -->
+  <view class="containers">
+    <view>
+      {{info.name}}
+      <text>{{info.filmType.name}}</text>
+    </view>
+    <view>
+      {{info.category}}
+    </view>
+    <view>
+      {{info.premiereAt}}上映
+    </view>
+    <view>
+      {{info.nation}}|{{info.runtime}}分钟
+    </view>
+    <view>
+      {{info.synopsis}}
+    </view>
+  </view>
+  <!-- 演员 -->
+  <view class="actors_swiper">
+    <view style="padding: 10rpx 20rpx;">演职人员</view>
+    <scroll-view class="scro_view" scroll-x="true">
+      <view class="imgs" wx:for="{{info.actors}}" wx:key="index">
+        <image style="width: 100%;height: 90%;" src="{{item.avatarAddress}}" mode="" />
+        <view style="text-align: center;">
+          {{item.name}}
+        </view>
+        <view style="text-align: center; white-space:wrap;">
+          {{item.role}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="actors_swipers">
+    <view style="padding: 10rpx 20rpx;">演职人员
+      <text bindtap="go_actors" data-id="{{info}}" style="margin-left:420rpx;">全部></text>
+    </view>
+    <scroll-view class="scro_view" scroll-x="true">
+      <view class="imgs" wx:for="{{info.actors}}" wx:key="index">
+        <image style="width: 100%;height: 90%;" src="{{item.avatarAddress}}" mode="" />
+        <view style="text-align: center;">
+          {{item.name}}
+        </view>
+        <view style="text-align: center; white-space:wrap;">
+          {{item.role}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

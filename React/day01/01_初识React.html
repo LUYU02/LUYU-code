@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React</title>
+  </head>
+  <body>
+    <h2>Add React in One Minute</h2>
+    <p>本页演示了如何使用React而不使用构建工具.</p>
+    <p>React是作为脚本标记加载的.</p>
+
+    <!-- 我们将把React组件放在这个div中. -->
+    <div id="like_button_container"></div>
+
+    <!-- 加载 React. -->
+    <!-- 注意: 部署时，将 "development.js" 替换为 "production.min.js". -->
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin></script>
+
+    <!--  加载我们的 React 组件。 -->
+    <script>
+      "use strict"
+      const e = React.createElement
+      class LikeButton extends React.Component {
+        constructor(props) {
+          super(props)
+          this.state = { liked: false }
+        }
+        render() {
+          if (this.state.liked) {
+            return "跳转到这里."
+          }
+          return e(
+            "button",
+            { onClick: () => this.setState({ liked: true }) },
+            "按钮"
+          )
+        }
+      }
+      const domContainer = document.querySelector("#like_button_container")
+      const root = ReactDOM.createRoot(domContainer)
+      root.render(e(LikeButton))
+    </script>
+  </body>
+</html>

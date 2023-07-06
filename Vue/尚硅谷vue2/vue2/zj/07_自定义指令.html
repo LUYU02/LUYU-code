@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="App">
+      <h1 @click="btn">当前的n: <span v-text="n"></span></h1>
+      <h1>放大的n: <span v-big="n"></span></h1>
+      <button @click="n++">点我</button>
+      <input type="text" name="" id="" v-fbind="n" />
+      <hr />
+      <h2 :style="{opacity}">
+        mounted：Vue完成模板的解析并把初始的真实DOM元素放入页面后（挂载完毕）调用mounted
+      </h2>
+    </div>
+    <script>
+      let zzz
+      new Vue({
+        el: "#App",
+        data() {
+          return {
+            n: 1,
+            opacity: 1,
+          }
+        },
+        methods: {
+          btn() {
+            // 销毁vm这个实例
+            this.$destroy()
+          },
+        },
+        mounted() {
+          zzz = setInterval(() => {
+            this.opacity -= 0.01
+            if (this.opacity <= 0) this.opacity = 1
+          }, 16)
+        },
+        directives: {
+          // 1.指令与元素成功绑定时(一上来) 2.指令所在的模板被重新解析时
+          big(span, b) {
+            console.log(span, b)
+            span.innerText = b.value * 10
+          },
+          fbind: {
+            // 指令与元素成功绑定时(一上来)
+            bind(a, b) {
+              console.log("1")
+              a.value = b.value
+            },
+            //指令所在元素被插入页面的时候
+            inserted(a, b) {
+              console.log("2")
+              a.focus()
+            },
+            //指令所在的模板被重新解析时
+            update(a, b) {
+              console.log("3")
+              a.value = b.value
+              a.focus()
+            },
+          },
+        },
+        // 销毁之前的钩子函数
+        beforeMount() {
+          this.zzz = null
+        },
+      })
+    </script>
+  </body>
+</html>

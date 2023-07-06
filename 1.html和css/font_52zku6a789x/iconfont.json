@@ -1,0 +1,65 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "34750883",
+      "name": "Icon_5_Cassette",
+      "font_class": "Icon_5_Cassette",
+      "unicode": "e9ac",
+      "unicode_decimal": 59820
+    },
+    {
+      "icon_id": "34750884",
+      "name": "Icon_18_Headphone",
+      "font_class": "Icon_18_Headphone",
+      "unicode": "e9ad",
+      "unicode_decimal": 59821
+    },
+    {
+      "icon_id": "34750885",
+      "name": "Icon_14_SEO",
+      "font_class": "Icon_14_SEO",
+      "unicode": "e9ae",
+      "unicode_decimal": 59822
+    },
+    {
+      "icon_id": "34750886",
+      "name": "Icon_3_Console",
+      "font_class": "Icon_3_Console",
+      "unicode": "e9af",
+      "unicode_decimal": 59823
+    },
+    {
+      "icon_id": "34750887",
+      "name": "Icon_13_Camera",
+      "font_class": "Icon_13_Camera",
+      "unicode": "e9b0",
+      "unicode_decimal": 59824
+    },
+    {
+      "icon_id": "34750888",
+      "name": "Icon_30_3D Glasses",
+      "font_class": "a-Icon_30_3DGlasses",
+      "unicode": "e9b1",
+      "unicode_decimal": 59825
+    },
+    {
+      "icon_id": "34750889",
+      "name": "Icon_21_VR",
+      "font_class": "Icon_21_VR",
+      "unicode": "e9b2",
+      "unicode_decimal": 59826
+    },
+    {
+      "icon_id": "34750890",
+      "name": "Icon_11_Radio Tape",
+      "font_class": "a-Icon_11_RadioTape",
+      "unicode": "e9b3",
+      "unicode_decimal": 59827
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+<van-dropdown-menu>
+  <van-dropdown-item value="全城" options="[2,4,6]" />
+  <van-dropdown-item value="最近去过" options="[1,2,3]" />
+</van-dropdown-menu>
+
+
+<van-tabs active="{{ active }}">
+  <van-tab title="标签 1">
+    <view class="box" wx:for="{{list}}" wx:key="{{item.cinemaId}}" >
+      <view class="box_left">
+        <view>{{item.name}}</view>
+        <view > {{item.address}}</view>
+      </view>
+      <view class="box_right">
+        <view> {{ item.latitude ? "29.8": null}} 起</view>
+        <view> {{item.longitude ? "1.7" : null}} km</view>
+      </view>
+    </view>
+
+  </van-tab>
+  <van-tab title="标签 2">内容 2</van-tab>
+  <van-tab title="标签 3">内容 3</van-tab>
+  <van-tab title="标签 4">内容 4</van-tab>
+  <van-tab title="标签 5">内容 5</van-tab>
+  <van-tab title="标签 6">内容 6</van-tab>
+</van-tabs>

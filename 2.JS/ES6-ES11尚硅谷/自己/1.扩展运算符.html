@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        const zz = ['小江', '露雨', '小璨']
+        function kz() {
+            console.log(arguments);
+        }
+        kz(...zz)
+        // 1. 数组合并
+        const zi = ['卫生纸', '卷纸']
+        const dm = ['魁拔', '镇魂街']
+        // es5的写法
+        // const zuihe = zi.concat(dm)
+        // es6写法
+        const zuihe = [...zi, ...dm]
+        console.log(zuihe);
+        // 2. 数组克隆 浅拷贝
+        const san = [1, 2, 3]
+        const san1 = [...san]
+        console.log(san1);
+        // 3. 将伪数组转为真的数组
+        const divs = document.querySelectorAll("div")
+        const divArr = [...divs]
+        console.log(divArr);
+    </script>
+</body>
+
+</html>

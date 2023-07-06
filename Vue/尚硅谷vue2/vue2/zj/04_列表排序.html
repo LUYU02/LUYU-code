@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      列表框:<input type="text" name="" id="" v-model="Mykey" />
+      <button @click="sortType=1">年龄升序</button>
+      <button @click="sortType=-1">年龄降序</button>
+      <button @click="sortType=0">原顺序</button>
+      <ul>
+        <li v-for="(v,i) of carr" :key="v.name">
+          <template>{{v.name}}---{{v.age}}----{{i}}</template>
+        </li>
+      </ul>
+      <hr />
+      <div id="example-4">
+        <input type="radio" id="one" value="One" v-model="picked" />
+        <label for="one">One</label>
+        <br />
+        <input type="radio" id="two" value="Two" v-model="picked" />
+        <label for="two">Two</label>
+        <br />
+        <span>Picked: {{ picked }}</span>
+      </div>
+      <input v-model.lazy="msg" placeholder="失去焦点" />
+      <input v-model="msg" />
+      <input v-model.number="age" type="number" placeholder="字符串转为数值" />
+      <input v-model.trim="msg" placeholder="去空格" />
+    </div>
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data() {
+          return {
+            msg: "",
+            age: "20.990101485120",
+            picked: "",
+            Mykey: "",
+            sortType: 0, // -1降序 0原顺序 1升序
+            arr: [
+              { name: "小江", age: 21 },
+              { name: "露雨", age: 10 },
+              { name: "小小江", age: 15 },
+              { name: "xiaojiang", age: 22 },
+              { name: "露", age: 18 },
+            ],
+          }
+        },
+        methods: {},
+        computed: {
+          carr() {
+            const arr = this.arr.filter((v) => {
+              return v.name.indexOf(this.Mykey) !== -1
+            })
+            if (this.sortType !== 0) {
+              arr.sort((a, b) => {
+                return this.sortType === 1 ? b.age - a.age : a.age - b.age
+              })
+            }
+            return arr
+          },
+        },
+      })
+    </script>
+  </body>
+</html>

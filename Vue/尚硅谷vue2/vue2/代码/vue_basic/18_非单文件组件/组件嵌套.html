@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <vue1></vue1>
+      <hr />
+    </div>
+    <script>
+      const vue1_1_1 = Vue.extend({
+        template: `
+            <div @click="change">我是子组件个组件{{msg2}}</div>
+        `,
+        data() {
+          return {
+            msg2: "1.1.1",
+          }
+        },
+        methods: {
+          change() {
+            console.log(this)
+            console.log(this.msg2)
+          },
+        },
+      })
+      const vue1_1 = Vue.extend({
+        template: `
+            <div>我是子组件个组件{{msg1}}
+                <a href="JavaScript:;">
+                    <vue1_1_1></vue1_1_1>
+                </a>
+            </div>
+        `,
+        data() {
+          return {
+            msg1: "1.1",
+          }
+        },
+        components: {
+          vue1_1_1,
+        },
+      })
+      const vue1 = Vue.extend({
+        template: `
+            <div>我是一个组件{{msg}}
+            <a href="JavaScript:;">
+                <vue1_1></vue1_1>
+            </a>
+            </div>
+        `,
+        data() {
+          return {
+            msg: "1",
+          }
+        },
+        components: {
+          vue1_1,
+        },
+      })
+
+      const vm = new Vue({
+        el: "#app",
+        components: {
+          vue1,
+        },
+      })
+
+      /* 一个重要的内置关系 */
+      const vc = new vue1_1_1()
+      console.log(Vue.prototype === vm.__proto__)
+      console.log(Vue.prototype) // Vue的构造函数.prototype是Vue的原型对象 (显示原型属性 只有.prototype)
+      console.log(vm.__proto__) // Vue的实例对象是vm vm的原型对象是Vue的原型对象 Vue的原型对象是Object原型对象 (隐式原型属性 只有__proto__)
+      console.log(vue1_1_1.prototype.__proto__) // VueComponent的构造函数.prototype是VueComponent的原型对象 VueComponent的原型对象的原型对象是Vue原型对象
+      console.log(vc.__proto__.__proto__) //VueComponent的实例对象是vc vc的原型对象是VueComponent的原型对象 VueComponent的原型对象的原型对象是Vue原型对象
+      console.log("*---------")
+      console.log(vue1_1_1.__proto__)
+      console.log(vue1_1_1 === vue1_1)
+    </script>
+    <script>
+      function obj() {}
+      console.dir(obj)
+      const o = new obj()
+      console.log(o)
+      console.log(obj.prototype === o.__proto__)
+
+      class Fun {
+        constructor(a) {
+          this.a = a
+        }
+        shange() {
+          console.log("@@@" + this)
+        }
+      }
+
+      class Fun1 extends Fun {
+        constructor(a, b) {
+          super(a)
+          this.b = b
+        }
+        shange() {
+          super.shange()
+        }
+      }
+      const f = new Fun1(1, 2)
+      const f1 = new Fun(10)
+      console.log(f)
+      console.dir(f.__proto__)
+      console.dir(f1.__proto__)
+
+      console.dir(Fun1.prototype)
+      console.dir(Fun.prototype)
+    </script>
+  </body>
+</html>

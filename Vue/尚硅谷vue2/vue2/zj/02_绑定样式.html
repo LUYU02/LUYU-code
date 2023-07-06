@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>绑定样式</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <style>
+      .luyu {
+        width: 200px;
+        height: 200px;
+      }
+      .luyu2 {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+      }
+      .luyu3 {
+        width: 200px;
+        height: 200px;
+        background-color: #bfa;
+      }
+      .luyu4 {
+        width: 200px;
+        height: 200px;
+        background-color: #baf;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="luyu" :class="luyu2" @click="Mychange"></div>
+      <hr />
+      <div v-show="show">显示</div>
+      <button @click="Myshow">show点我</button>
+      <br />
+      <hr />
+      <template v-if="if1">
+        <div>111</div>
+      </template>
+      <button @click="Myif">if点我</button>
+      <br />
+      <hr />
+      <div>
+        列表框:<input type="text" name="" id="" v-model="Mykey" />
+        <ul>
+          <!-- <li v-if="ForIf">{{v.name}}---{{v.age}}----{{i}}</li> -->
+          <li v-for="(v,i) of filfor1" :key="v.name">
+            <!-- {{v.name}}---{{v.age}}----{{i}} -->
+            <template v-if="ForIf">{{v.name}}---{{v.age}}----{{i}}</template>
+          </li>
+        </ul>
+        <button @click="MyFor">for点我</button>
+      </div>
+    </div>
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data() {
+          return {
+            name: "xiaojaing",
+            luyu2: "luyu2",
+            show: false,
+            if1: false,
+            for1: [
+              {
+                name: "小江",
+                age: 20,
+              },
+              {
+                name: "xiaojiang",
+                age: 10,
+              },
+            ],
+            // filfor1: [],
+            ForIf: false,
+            Mykey: "",
+          }
+        },
+        methods: {
+          Mychange() {
+            const arr = ["luyu2", "luyu3", "luyu4"]
+            this.luyu2 = arr[Math.floor(Math.random() * 3)]
+          },
+          Myshow() {
+            this.show = !this.show
+          },
+          Myif() {
+            this.if1 = !this.if1
+          },
+          MyFor() {
+            this.ForIf = !this.ForIf
+          },
+        },
+        /*         watch: {
+          Mykey: {
+            immediate: true, //初始化时让handler调用一下
+            handler(newV) {
+              this.filfor1 = this.for1.filter((v) => {
+                return v.name.indexOf(newV) !== -1
+              })
+            },
+          },
+        }, */
+        computed: {
+          filfor1() {
+            return this.for1.filter((v) => {
+              return v.name.indexOf(this.Mykey) !== -1
+            })
+          },
+        },
+      })
+    </script>
+  </body>
+</html>

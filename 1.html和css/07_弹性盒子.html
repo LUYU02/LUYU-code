@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>弹性盒子</title>
+    <link rel="stylesheet" href="./Normalize.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            margin: 100px auto;
+            width: 800px;
+            height: 800px;
+            border: 10px solid red;
+            /*开启弹性盒子 块级 flex 行内  */
+            display:  flex;
+            /*设置主轴的方向*/
+            /*flex-direction: row;*/
+
+            /*设置元素是否自动换行*/
+            /*flex-wrap: wrap;*/
+
+            /*flex-flow: column wrap-reverse;*/
+            /*flex-flow: row wrap;*/
+
+            /*设置元素在主轴的对齐方式*/
+            /*justify-content: space-between;*/
+
+            /*设置元素在侧轴的对齐方式*/
+            /*align-items: center;*/
+            /*align-content:space-evenly;*/
+        }
+        li{
+            width: 100px;
+            height: 100px;
+            list-style: none;
+            text-align: center;
+            line-height: 100px;
+
+            /*根据主轴来设置宽高*/
+            /*flex-basis: auto;*/
+
+            /*弹性子元素的收缩系数 (弹性子元素的所有宽度大于弹性盒的宽度)*/
+            /*flex-shrink: 10;*/
+            /*弹性子元素的伸缩系数 (弹性子元素的所有宽度小于弹性盒的宽度)*/
+            /*flex-grow: 10;*/
+
+            /*成长 缩小 主轴宽高*/
+            flex: 1 1 auto;
+        }
+        li:nth-child(1){
+            background-color: black;
+            /*flex-shrink: 6;*/
+            /*flex-grow: 6;*/
+
+            /*简写*/
+            flex: 6 6 auto;
+            order: 2;
+        }
+        li:nth-child(2){
+            background-color: #bbffaa;
+            flex-shrink: 7;
+            flex-grow: 7;
+            /*弹性子元素的样式*/
+            align-self: end;
+            /*弹性子元素的排序*/
+            order: 1;
+        }
+        li:nth-child(3){
+            background-color: #9a6e3a;
+            flex-shrink: 5;
+            flex-grow: 5;
+       }
+        li:nth-child(4){
+            background-color: #55a532;
+            flex-shrink: 2;
+            flex-grow: 2;
+        }
+        li:nth-child(5){
+            width: 200px;
+            background-color: #0077aa;
+            flex-shrink: 10;
+            flex-grow: 10;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+</body>
+</html>

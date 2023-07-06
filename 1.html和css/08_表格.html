@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <title>表格</title>
+    <style>
+      .box {
+        /*转为表格*/
+        display: table-cell;
+        width: 500px;
+        height: 500px;
+        border: 10px solid red;
+        /*文字在td中自动垂直居中*/
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      table {
+        width: 80%;
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+      }
+
+      td {
+        border: 1px solid black;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <td>1000</td>
+    </div>
+    <table>
+      <caption>
+        表格的标题
+      </caption>
+      <thead>
+        <tr>
+          <td>学号</td>
+          <td>姓名</td>
+          <td>性别</td>
+          <td>年龄</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>01</td>
+          <td>小江</td>
+          <td>男</td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td rowspan="2">02</td>
+          <td>露雨</td>
+          <td>男</td>
+          <td>21</td>
+        </tr>
+        <tr>
+          <!--            <td>02</td>-->
+          <td>露雨</td>
+          <td>男</td>
+          <td>21</td>
+        </tr>
+        <tr>
+          <td>01</td>
+          <td>小江</td>
+          <td>男</td>
+          <td>18</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2">底部</td>
+          <td>合计</td>
+          <td>1</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

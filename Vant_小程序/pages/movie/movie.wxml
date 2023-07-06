@@ -1,0 +1,63 @@
+<view>
+  <van-tabs bind:click="onClick">
+    <van-tab title="正在热映">
+      <scroll-view>
+        <view class="box_cell" bindtap="goInfo" data-id="{{item.filmId}}" wx:for="{{list1}}" wx:key="index">
+          <view class="img_box">
+            <image src="{{item.poster}}" mode="" />
+          </view>
+          <view class="center">
+            <view>
+              {{item.name}}
+            </view>
+            <view>
+              观众评分：
+              <text>{{item.grade}}</text>
+            </view>
+            <view>
+              <text wx:for="{{item.actors}}" wx:key="index">{{item.name}}</text>
+            </view>
+          </view>
+          <view class="right_box">
+            <view>
+              <van-button wx:if="{{item.isPresale}}" type="primary" size="mini" data-id="2"  >购买</van-button>
+              <text wx:else="{{item.isPresale}}"></text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+
+    </van-tab>
+    <van-tab title="即将上映">
+      <scroll-view>
+        <view class="box_cell" wx:for="{{list2}}" wx:key="index" bindtap="gotoinfo" data-ite="{{item.filmId}}">
+          <view class="img_box">
+            <image src="{{item.poster}}" mode="" />
+          </view>
+          <view class="center">
+            <view>
+              {{item.name}}
+            </view>
+            <view>
+              观众评分：
+              <text>{{item.grade}}</text>
+            </view>
+            <view>
+              <text wx:for="{{item.actors}}" wx:key="index">{{item.name}}</text>
+            </view>
+
+          </view>
+          <view class="right_box">
+            <view>
+              <van-button wx:if="{{item.isPresale}}" type="primary" data-ids="1" size="mini">预购</van-button>
+              <text wx:else="{{item.isPresale}}"></text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </van-tab>
+  </van-tabs>
+
+
+
+</view>

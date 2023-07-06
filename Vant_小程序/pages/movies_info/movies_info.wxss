@@ -1,0 +1,64 @@
+/* pages/movie_info/movie_info.wxss */
+.headers{
+  height: 400rpx;
+  /* background-color: red; */
+}
+.headers image{
+  width: 100%;
+  height: 100%;
+}
+
+.containers{
+  display: flex;
+  height: 300rpx;
+  /* background-color: pink; */
+  flex-direction: column;
+}
+.containers view:nth-child(1){
+  padding: 10rpx 30rpx;
+  font-weight: 500;
+}
+.containers view:nth-child(2){
+  font-size: 24rpx;
+  padding: 5rpx 30rpx;
+}
+.containers view:nth-child(3){
+  font-size: 24rpx;
+  padding: 5rpx 30rpx;
+}
+.containers view:nth-child(4){
+  font-size: 24rpx;
+  padding: 5rpx 30rpx;
+}
+.containers view:nth-child(5){
+  font-size: 24rpx;
+  padding: 0rpx 30rpx;
+   display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.scro_view{
+  height: 300rpx;
+  width: 100%;
+  white-space: nowrap;
+  /* display: flex; */
+}
+.actors_swiper{
+  height: 350rpx;
+  /* background-color: blue; */
+}
+.imgs{
+  margin: 0 20rpx;
+  width: 160rpx;
+  height: 230rpx;
+  font-size: 18rpx;
+  display: inline-block;
+  /* height: 100%; */
+  /* background-color: red; */
+}
+.actors_swipers{
+  height: 280rpx;
+  /* background-color: green; */
+  
+}

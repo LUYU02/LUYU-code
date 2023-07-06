@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "iconfont"; /* Project id  */
+  src: url('iconfont.ttf?t=1679904234815') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Icon_5_Cassette:before {
+  content: "\e9ac";
+}
+
+.icon-Icon_18_Headphone:before {
+  content: "\e9ad";
+}
+
+.icon-Icon_14_SEO:before {
+  content: "\e9ae";
+}
+
+.icon-Icon_3_Console:before {
+  content: "\e9af";
+}
+
+.icon-Icon_13_Camera:before {
+  content: "\e9b0";
+}
+
+.icon-a-Icon_30_3DGlasses:before {
+  content: "\e9b1";
+}
+
+.icon-Icon_21_VR:before {
+  content: "\e9b2";
+}
+
+.icon-a-Icon_11_RadioTape:before {
+  content: "\e9b3";
+}
+

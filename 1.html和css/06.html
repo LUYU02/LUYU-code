@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>京东导航条</title>
+<!--    导入icon图标-->
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="Normalize.css">
+    <style>
+        body{
+            font: 12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif;
+        }
+        ul {
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            /*  继承祖先的样式 解决继承的层级低的问题 */
+            color: inherit;
+        }
+        /*.red{*/
+        /*    color: rgb(241, 2, 21);*/
+        /*}*/
+        .box{
+            height: 30px;
+            background-color: rgb(227, 228, 229);
+        }
+        .navigationBars{
+            width: 1190px;
+            height: 30px;
+            margin: 0 auto;
+            /*background-color: #bbffaa;*/
+            line-height: 30px;
+            font-size: 12px;
+            color: rgb(153, 153, 153);
+        }
+        .nav-left{
+            float: left;
+            padding: 0 7px;
+        }
+        .nav-left .fa-location-pin{
+            color: rgb(241, 2, 21);
+        }
+        .nav-right{
+            float: right;
+        }
+        .nav-right ul{
+            float: left;
+            /*background-color: black;*/
+            margin: 0;
+            padding: 0;
+        }
+        .nav-right ul li{
+            float: left;
+        }
+        .nav-right ul li:nth-child(n):hover a{
+            color: rgb(241, 2, 21);
+        }
+        .nav-right ul li:nth-last-of-type(-n+7):hover:nth-child(odd){
+            color: rgb(241, 2, 21);
+        }
+        .nav-right ul li:nth-child(even){
+            margin: 0 5px;
+            color: rgba(204, 204, 204);
+        }
+        .nav-right ul li:nth-child(odd){
+            padding: 0 7px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <nav class="navigationBars">
+            <!--    左侧-->
+            <div class="nav-left">
+                <i class="fa-sharp fa-solid fa-location-pin"></i>
+                <span>江西</span>
+            </div>
+            <!--    右侧-->
+            <div class="nav-right">
+                <ul>
+                    <li>
+                        <a href="JavaScript:">你好，请登录</a>
+                        <a href="JavaScript:" class="red">免费注册</a>
+                    </li>
+                    <li>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="JavaScript:">我的订单</a>
+                    </li>
+                    <li>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="JavaScript:">我的京东</a>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </li>
+                    <li>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="JavaScript:" class="red">企业采购</a>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </li>
+                    <li>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <span>商家服务</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </li>
+                    <li>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <span>网站导航</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </li>
+                    <li>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <span>手机京东</span>
+                    </li>
+                    <li>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="JavaScript:">网站无障碍</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

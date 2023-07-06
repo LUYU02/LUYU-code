@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const obj1 = {
+        name: "xiaojiang",
+        up() {
+          console.log("up")
+        },
+      }
+      let methods = {
+        up: Symbol(),
+        age: "age",
+      }
+      obj1[methods.up] = () => {
+        console.log("Symbol()---->up")
+      }
+
+      obj1[methods.age] = 20
+      obj1.up()
+      obj1[methods.up]()
+      console.log(obj1)
+      obj1["z1"]
+      console.log(obj1)
+    </script>
+    <script>
+      var it = makeIterator(["a", "b"])
+
+      it.next() // { value: "a", done: false }
+      it.next() // { value: "b", done: false }
+      it.next() // { value: undefined, done: true }
+
+      console.log(it)
+      function makeIterator(array) {
+        var nextIndex = 0
+        return {
+          next: function () {
+            return nextIndex < array.length
+              ? { value: array[nextIndex++], done: false }
+              : { value: undefined, done: true }
+          },
+        }
+      }
+    </script>
+    <script>
+      let iterable = {
+        0: "a",
+        1: "b",
+        2: "c",
+        zz() {
+          console.log(this.length)
+        },
+        length: 3,
+        [Symbol.iterator]: Array.prototype[Symbol.iterator],
+      }
+      for (let item of iterable) {
+        console.log(item) // 'a', 'b', 'c'
+      }
+      iterable.zz()
+
+      var someString = "hi"
+      typeof someString[Symbol.iterator]
+    </script>
+    <script>
+      const obj2 = {
+        name: "小江",
+        age: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        [Symbol.iterator]() {
+          let i = 0
+          let _this = this
+          return {
+            next() {
+              if (i < _this.age.length) {
+                const result = { value: _this.age[i], done: false }
+                // i自增不然死循环
+                i++
+                return result
+              } else {
+                return { value: undefined, done: true }
+              }
+            },
+          }
+        },
+      }
+      for (const v of obj2) {
+        console.log(v)
+      }
+    </script>
+    <script>
+      /*       // 生成器
+      // 函数代码的分隔符 yield
+      function* get() {
+        console.log("111")
+        yield* "表达式或者字面量"
+        console.log("222")
+        yield "表达式或者字面量"
+      }
+      let get1 = get()
+      //   console.log(get1.next()) // 返回yield 里面的值
+      //   console.log(get1.next())
+
+      for (const i of get()) {
+        console.log(i)
+      } */
+    </script>
+    <script>
+      // 生成器的参数
+      function* set(arg) {
+        console.log("arg---->" + arg)
+        let one = yield 111
+        console.log("one---->" + one)
+        let two = yield 222
+        console.log("two---->" + two)
+      }
+      let set1 = set("arg") // 不调用 只传参
+      console.log(set1)
+      console.log(set1 === set1[Symbol.iterator]())
+
+      console.log(set1[Symbol.iterator]().next())
+      console.log(set1[Symbol.iterator]().next("a"))
+      console.log(set1[Symbol.iterator]().next("b"))
+
+      //   console.log(set1.next()) // 调用   console.log("arg---->" + arg)
+      //   console.log(set1.next("AAA")) // 调用  console.log("one---->" + one)
+      //   console.log(set1.next("BBB")) // 调用   console.log("two---->" + two)
+    </script>
+    <script>
+      /*       setTimeout(() => {
+        console.log("111")
+        setTimeout(() => {
+          console.log("222")
+          setTimeout(() => {
+            console.log("333")
+          }, 3000)
+        }, 2000)
+      }, 1000) */
+    </script>
+    <script>
+      Number.parseFloat("12")
+
+      console.log(parseFloat("12.811"))
+      console.log(parseInt("12.111"))
+    </script>
+    <script>
+      const objj1 = {
+        name: "小江",
+      }
+      const objj2 = {
+        name: "xiaojiang",
+        age: "20",
+      }
+      Object.setPrototypeOf(objj1, objj2)
+      console.log(Object.getPrototypeOf(objj1) === objj1.__proto__)
+      console.log(objj1)
+
+      console.log("---->", globalThis)
+      a = 20
+      console.log(globalThis.a)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>高度塌陷</title>
+    <style>
+        .box1{
+            width: 400px;
+            height: 400px;
+            background-color: black;
+            /*border: 10px dashed red;*/
+            /*  开启BFC 解决外边距折叠*/
+            display: flow-root;
+            /*overflow: auto;*/
+        }
+        .box2{
+            /*float: left;*/
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="box1">
+    <div class="box2"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+/* pages/cinema/cinema.wxss */
+.header{
+  margin-left: 35rpx;
+}
+.list{
+  height: 140rpx;
+  /* background-color: red; */
+  border-top: 1rpx solid #ccc;
+  border-bottom: 1rpx solid #ccc;
+  display: flex;
+  justify-content: space-evenly;
+}
+.left_list{
+  padding: 0 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width:480rpx;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  /* text-align: center; */
+}
+
+.right_list{
+  width: 200rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 50rpx;
+  text-align: center;
+}
